@@ -26,12 +26,11 @@ Driven and detail-oriented undergraduate student, currently in my 2nd year of a 
 ## Projects
 - **Coursework in Biocomputing and Sequence Analysis** — Applying programming and computational methods to biological sequence data.
 - **Molecular Modelling and Drug Design** — Coursework exploring computational approaches to drug design.
-- *[Add any independent or extracurricular projects you're working on]*
+- *[Developing Variant Calling pipeline and website development]*
 
 ## CV / Resume
 📄 [Download my CV/Resume](link-to-your-cv.pdf)
 
-*(We'll upload a PDF version of your CV to activate this link — see note below.)*
 
 ## References
 
