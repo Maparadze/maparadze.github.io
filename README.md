@@ -127,7 +127,7 @@ Driven and detail-oriented undergraduate student, currently in my **2nd year** o
 
 | Platform | Link |
 |----------|------|
-| 📧 Email | [platiclemore@gmail.com](mailto:platiclemore@gmail.com) |
+| 📧 Email | [tendayimaparadzes@gmail.com](mailto: tendayimaparadzes@gmail.com) |
 | 📞 Phone | [+263 780 648 521](tel:+263780648521) |
 | 🔗 LinkedIn | [linkedin.com/in/tendayi-maparadze](https://www.linkedin.com/in/tendayi-maparadze-4042983b3) |
 | 🐙 GitHub | [github.com/Maparadze](https://github.com/Maparadze) |
