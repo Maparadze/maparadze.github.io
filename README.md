@@ -126,7 +126,7 @@ Driven and detail-oriented undergraduate student, currently in my **2nd year** o
 
 ---
 
-### ðŸš€ *Actively seeking internship opportunities in Biotechnology and Bioinformatics*
+### ðŸš€ *Actively seeking remote internship opportunities in Bioinformatics and Scholarships*
 
 ---
 
