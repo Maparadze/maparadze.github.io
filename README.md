@@ -25,7 +25,7 @@ body {
 
 ## ðŸ‘¨â€ðŸ”¬ About Me
 
-Driven and detail-oriented undergraduate student, currently in my **2nd year** of a Bachelor's Honours Degree in **Biotechnology and Bioinformatics** at Midlands State University. I bring strong analytical, organizational, and communication skills, along with experience in supply chain administration. I am actively seeking internship opportunities in Biotechnology and Bioinformatics.
+Driven and detail-oriented undergraduate student, currently in my **3rd year** of a Bachelor's Honours Degree in **Biotechnology and Bioinformatics** at Midlands State University. I bring strong analytical, organizational, and communication skills, along with experience in supply chain administration. I am actively seeking internship opportunities in Biotechnology and Bioinformatics.
 
 ---
 
