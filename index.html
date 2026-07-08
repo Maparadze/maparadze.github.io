@@ -7,39 +7,41 @@
 <meta name="description" content="Tendayi Maparadze — BSc Honours Biotechnology and Bioinformatics, Midlands State University">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  /* Base colors follow the real convention used in genome browsers (IGV/UCSC):
+     A = green, C = blue, G = orange, T = red. Used throughout as the accent system. */
   :root{
-    --bg:#f5f7f3;
+    --bg:#0d1b2a;
+    --bg-light:#f4f9f7;
     --surface:#ffffff;
-    --ink:#142d2b;
-    --muted:#5b6b68;
-    --teal:#0e7c74;
-    --teal-deep:#0a5852;
-    --amber:#c98a2c;
-    --line:#d8e3df;
+    --ink:#0d1b2a;
+    --muted:#5c6f78;
+    --A:#2ea043;
+    --C:#1f6feb;
+    --G:#f0883e;
+    --T:#e8425a;
+    --line:#dde7e3;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--bg);
+    background:var(--bg-light);
     color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
+    font-family:'Sora', sans-serif;
     font-size:16px;
-    line-height:1.6;
-    background-image:
-      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(14,124,116,0.05) 40px),
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(14,124,116,0.05) 40px);
+    line-height:1.65;
   }
-  a{color:var(--teal-deep);}
-  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  a{color:var(--C);}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--G);color:#fff;}
 
   /* nav */
   nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(245,247,243,0.92);
-    backdrop-filter:blur(6px);
+    background:rgba(244,249,247,0.9);
+    backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
   nav .wrap{
@@ -51,9 +53,11 @@
   .nav-mark{
     font-family:'IBM Plex Mono',monospace;
     font-weight:700;
-    letter-spacing:0.03em;
+    letter-spacing:0.02em;
     font-size:14px;
+    display:flex;align-items:center;gap:8px;
   }
+  .nav-mark .dot{width:9px;height:9px;border-radius:50%;background:var(--A);display:inline-block;}
   .nav-links{display:flex;gap:18px;flex-wrap:wrap;}
   .nav-links a{
     font-family:'IBM Plex Mono',monospace;
@@ -62,72 +66,102 @@
     letter-spacing:0.08em;
     color:var(--muted);
     text-decoration:none;
-    border-bottom:1px solid transparent;
+    border-bottom:2px solid transparent;
     padding-bottom:2px;
+    transition:color .15s, border-color .15s;
   }
-  .nav-links a:hover{color:var(--teal-deep);border-color:var(--teal-deep);}
+  .nav-links a:hover{color:var(--C);border-color:var(--C);}
 
-  /* helix divider — signature element */
-  .helix{
-    width:100%;
-    height:26px;
-    display:block;
-    margin:8px 0;
+  /* ============ HERO ============ */
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(46,160,67,0.35), transparent 60%),
+      radial-gradient(ellipse 800px 600px at 90% 10%, rgba(31,111,235,0.35), transparent 55%),
+      radial-gradient(ellipse 700px 500px at 60% 100%, rgba(240,136,62,0.25), transparent 55%),
+      linear-gradient(160deg, #0d1b2a 0%, #10263a 55%, #0d1b2a 100%);
+    color:#f4f9f7;
+    padding:72px 0 56px;
+    position:relative;
+    overflow:hidden;
   }
-
-  /* hero */
-  header.hero{padding:64px 0 40px;}
+  .hero-inner{position:relative;z-index:2;}
   .eyebrow-line{
     display:flex;align-items:center;gap:10px;
     font-family:'IBM Plex Mono',monospace;
-    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
-    margin-bottom:18px;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    margin-bottom:20px;
+    color:#b9c9c3;
   }
   .codon{
-    width:24px;height:24px;border-radius:50%;
+    width:26px;height:26px;border-radius:50%;
     display:inline-flex;align-items:center;justify-content:center;
     font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:12px;
     color:#fff;flex:none;
+    box-shadow:0 0 0 3px rgba(255,255,255,0.08);
   }
-  .codon.A{background:var(--teal);}
-  .codon.T{background:var(--amber);}
-  .codon.G{background:var(--teal-deep);}
-  .codon.C{background:#8a6d3b;}
+  .codon.A{background:var(--A);}
+  .codon.T{background:var(--T);}
+  .codon.G{background:var(--G);}
+  .codon.C{background:var(--C);}
 
   h1.name{
-    font-family:'IBM Plex Mono',monospace;
-    font-weight:700;
-    font-size:clamp(32px, 6vw, 54px);
-    letter-spacing:-0.01em;
-    margin:0 0 6px;
+    font-family:'Sora',sans-serif;
+    font-weight:800;
+    font-size:clamp(34px, 6.5vw, 58px);
+    letter-spacing:-0.02em;
+    margin:0 0 10px;
     line-height:1.05;
+    background:linear-gradient(90deg,#ffffff 20%, #a9f0c4 55%, #9fc8ff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
   }
   .role{
     font-size:19px;
-    color:var(--muted);
-    margin:0 0 26px;
+    color:#c7d6d1;
+    margin:0 0 24px;
     max-width:560px;
+    font-weight:500;
   }
-  .bio{max-width:640px;margin:0 0 30px;font-size:16px;}
+  .bio{max-width:640px;margin:0 0 30px;font-size:16px;color:#dbe6e2;}
   .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
   .btn{
     font-family:'IBM Plex Mono',monospace;
     font-size:13px;
     text-decoration:none;
-    padding:11px 18px;
-    border-radius:3px;
-    border:1px solid var(--ink);
+    padding:12px 20px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.25);
     display:inline-flex;align-items:center;gap:8px;
     letter-spacing:0.02em;
-    transition:transform .12s ease;
+    transition:transform .15s ease, box-shadow .15s ease;
   }
   .btn:hover{transform:translateY(-2px);}
-  .btn.primary{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff;}
-  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.primary{
+    background:linear-gradient(90deg, var(--A), var(--C));
+    border-color:transparent;
+    color:#fff;
+    box-shadow:0 6px 20px rgba(31,111,235,0.35);
+  }
+  .btn.primary:hover{box-shadow:0 10px 26px rgba(31,111,235,0.5);}
+  .btn.ghost{background:rgba(255,255,255,0.06);color:#f4f9f7;}
+  .btn.ghost:hover{background:rgba(255,255,255,0.12);}
 
-  /* sections */
-  section{padding:46px 0;border-top:1px solid var(--line);}
-  section h2{
+  /* sequence strip signature element */
+  .seq-strip{
+    position:relative;z-index:2;
+    display:flex;
+    margin-top:40px;
+    border-radius:8px;
+    overflow:hidden;
+    height:14px;
+    box-shadow:0 4px 18px rgba(0,0,0,0.35);
+  }
+  .seq-strip span{flex:1;height:100%;}
+
+  /* ============ SECTIONS ============ */
+  section{padding:50px 0;border-top:1px solid var(--line);}
+  section h2.eyebrow{
     font-family:'IBM Plex Mono',monospace;
     font-size:13px;
     text-transform:uppercase;
@@ -136,20 +170,20 @@
     margin:0 0 4px;
   }
   section h3.section-title{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:26px;
-    font-weight:600;
-    margin:0 0 24px;
+    font-family:'Sora',sans-serif;
+    font-size:28px;
+    font-weight:700;
+    margin:0 0 26px;
     color:var(--ink);
   }
-
-  /* data table style (mono, ledger-like) */
-  table{
-    width:100%;
-    border-collapse:collapse;
-    font-size:15px;
+  .eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .eyebrow-row .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
   }
-  table caption{text-align:left;}
+
+  /* data table */
+  table{width:100%;border-collapse:collapse;font-size:15px;}
   th{
     text-align:left;
     font-family:'IBM Plex Mono',monospace;
@@ -158,30 +192,30 @@
     text-transform:uppercase;
     color:var(--muted);
     padding:8px 12px;
-    border-bottom:1px solid var(--ink);
+    border-bottom:2px solid var(--ink);
   }
-  td{
-    padding:12px 12px;
-    border-bottom:1px solid var(--line);
-    vertical-align:top;
-  }
+  td{padding:14px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
   tr:last-child td{border-bottom:none;}
 
   /* grid cards */
-  .grid{display:grid;gap:16px;}
+  .grid{display:grid;gap:18px;}
   .grid.cols-2{grid-template-columns:repeat(2,1fr);}
   .grid.cols-3{grid-template-columns:repeat(3,1fr);}
   .card{
     background:var(--surface);
     border:1px solid var(--line);
-    border-radius:4px;
-    padding:20px;
+    border-left:4px solid var(--C);
+    border-radius:8px;
+    padding:22px;
+    box-shadow:0 2px 10px rgba(13,27,42,0.04);
+    transition:transform .15s ease, box-shadow .15s ease;
   }
-  .card h4{
-    margin:0 0 8px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:15px;
-  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(13,27,42,0.09);}
+  .card.accent-A{border-left-color:var(--A);}
+  .card.accent-T{border-left-color:var(--T);}
+  .card.accent-G{border-left-color:var(--G);}
+  .card.accent-C{border-left-color:var(--C);}
+  .card h4{margin:0 0 8px;font-family:'Sora',sans-serif;font-weight:700;font-size:16px;}
   .card p{margin:0;color:var(--muted);font-size:14.5px;}
   .status{
     display:inline-block;
@@ -189,59 +223,84 @@
     font-size:11px;
     letter-spacing:0.06em;
     text-transform:uppercase;
-    color:var(--teal-deep);
-    background:rgba(14,124,116,0.1);
-    padding:3px 8px;
-    border-radius:2px;
-    margin-top:10px;
+    color:#fff;
+    background:var(--A);
+    padding:4px 10px;
+    border-radius:20px;
+    margin-top:12px;
   }
+  .status.progress{background:var(--G);}
 
+  .skill-col{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:20px;
+    border-top:4px solid var(--C);
+  }
+  .skill-col.accent-A{border-top-color:var(--A);}
+  .skill-col.accent-T{border-top-color:var(--T);}
+  .skill-col.accent-G{border-top-color:var(--G);}
   .skill-col h4{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:14px;
-    letter-spacing:0.02em;
-    margin:0 0 10px;
-    color:var(--teal-deep);
+    font-family:'Sora',sans-serif;
+    font-size:15px;font-weight:700;
+    margin:0 0 12px;
+    color:var(--ink);
   }
   .skill-col ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;}
-  .skill-col li{margin-bottom:6px;}
-
-  .lang-row{display:flex;gap:24px;margin-top:6px;}
-  .lang-row div{font-size:14.5px;}
-  .lang-row b{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
+  .skill-col li{margin-bottom:7px;}
+  .lang-item{margin-bottom:12px;}
+  .lang-item b{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
 
   .cv-panel{
     display:flex;align-items:center;justify-content:space-between;
-    background:var(--surface);
+    background:linear-gradient(120deg, #eafff1, #eaf2ff);
     border:1px solid var(--line);
-    border-radius:4px;
-    padding:24px;
+    border-radius:10px;
+    padding:26px;
     flex-wrap:wrap;
     gap:16px;
   }
   .cv-panel p{margin:0;color:var(--muted);max-width:420px;}
+  .cv-panel .btn.primary{color:#fff;}
 
-  .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
-  .contact-item{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:16px 18px;
+  .contact-row{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
   }
-  .contact-item span{
-    display:block;
+  .contact-icon{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    width:96px;
+  }
+  .contact-icon .bubble{
+    width:64px;height:64px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(13,27,42,0.12);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .contact-icon:hover .bubble{transform:translateY(-4px) scale(1.05);box-shadow:0 10px 24px rgba(13,27,42,0.2);}
+  .contact-icon .bubble svg{width:28px;height:28px;}
+  .contact-icon .label{
     font-family:'IBM Plex Mono',monospace;
     font-size:11px;
-    letter-spacing:0.08em;
+    letter-spacing:0.06em;
     text-transform:uppercase;
     color:var(--muted);
-    margin-bottom:4px;
+    text-align:center;
   }
-  .contact-item a{color:var(--ink);text-decoration:none;font-size:15px;}
-  .contact-item a:hover{color:var(--teal-deep);}
+  .bubble.email{background:var(--A);}
+  .bubble.whatsapp{background:#25D366;}
+  .bubble.linkedin{background:#0A66C2;}
+  .bubble.github{background:var(--ink);}
 
   footer{
-    padding:30px 0 60px;
+    padding:34px 0 60px;
     text-align:center;
     color:var(--muted);
     font-family:'IBM Plex Mono',monospace;
@@ -274,7 +333,7 @@
 
 <nav>
   <div class="wrap">
-    <div class="nav-mark">T. MAPARADZE</div>
+    <div class="nav-mark"><span class="dot"></span>T. MAPARADZE</div>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#education">Education</a>
@@ -288,8 +347,8 @@
   </div>
 </nav>
 
-<div class="wrap">
-  <header class="hero">
+<div class="hero">
+  <div class="wrap hero-inner">
     <div class="eyebrow-line"><span class="codon A">A</span> Undergraduate · Biotechnology &amp; Bioinformatics</div>
     <h1 class="name">Tendayi Maparadze</h1>
     <p class="role">Aspiring genomics researcher, BSc Honours student at Midlands State University</p>
@@ -299,21 +358,27 @@
       <a class="btn ghost" href="CV_Tendayi_Maparadze.pdf">View CV</a>
       <a class="btn ghost" href="CV_Tendayi_Maparadze.pdf" download>Download CV</a>
     </div>
-  </header>
+    <div class="seq-strip" aria-hidden="true">
+      <span style="background:var(--A)"></span><span style="background:var(--T)"></span><span style="background:var(--G)"></span><span style="background:var(--C)"></span>
+      <span style="background:var(--G)"></span><span style="background:var(--A)"></span><span style="background:var(--C)"></span><span style="background:var(--T)"></span>
+      <span style="background:var(--C)"></span><span style="background:var(--G)"></span><span style="background:var(--A)"></span><span style="background:var(--T)"></span>
+      <span style="background:var(--T)"></span><span style="background:var(--C)"></span><span style="background:var(--G)"></span><span style="background:var(--A)"></span>
+      <span style="background:var(--A)"></span><span style="background:var(--T)"></span><span style="background:var(--C)"></span><span style="background:var(--G)"></span>
+      <span style="background:var(--G)"></span><span style="background:var(--A)"></span><span style="background:var(--T)"></span><span style="background:var(--C)"></span>
+    </div>
+  </div>
+</div>
 
-  <svg class="helix" viewBox="0 0 900 26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M0 13 Q22.5 0 45 13 T90 13 T135 13 T180 13 T225 13 T270 13 T315 13 T360 13 T405 13 T450 13 T495 13 T540 13 T585 13 T630 13 T675 13 T720 13 T765 13 T810 13 T855 13 T900 13" stroke="#0e7c74" stroke-width="1.6" fill="none" opacity="0.55"/>
-    <path d="M0 13 Q22.5 26 45 13 T90 13 T135 13 T180 13 T225 13 T270 13 T315 13 T360 13 T405 13 T450 13 T495 13 T540 13 T585 13 T630 13 T675 13 T720 13 T765 13 T810 13 T855 13 T900 13" stroke="#c98a2c" stroke-width="1.6" fill="none" opacity="0.55"/>
-  </svg>
+<div class="wrap">
 
   <section id="about">
-    <div class="eyebrow-line"><span class="codon T">T</span> 01 — About</div>
+    <div class="eyebrow-row"><span class="codon T">T</span><span class="eyebrow">01 — About</span></div>
     <h3 class="section-title">About me</h3>
-    <p class="bio" style="max-width:100%;">Currently in my 3rd year at Midlands State University, Gweru, Zimbabwe, pursuing a Bachelor's Honours Degree in Biotechnology and Bioinformatics. My interests sit at the intersection of computation and molecular biology — using code to make sense of sequence, structure and function.</p>
+    <p style="max-width:100%;color:var(--muted);">Currently in my 3rd year at Midlands State University, Gweru, Zimbabwe, pursuing a Bachelor's Honours Degree in Biotechnology and Bioinformatics. My interests sit at the intersection of computation and molecular biology — using code to make sense of sequence, structure and function.</p>
   </section>
 
   <section id="education">
-    <div class="eyebrow-line"><span class="codon G">G</span> 02 — Education</div>
+    <div class="eyebrow-row"><span class="codon G">G</span><span class="eyebrow">02 — Education</span></div>
     <h3 class="section-title">Education</h3>
     <table>
       <thead>
@@ -340,22 +405,22 @@
   </section>
 
   <section id="research">
-    <div class="eyebrow-line"><span class="codon C">C</span> 03 — Research interests</div>
+    <div class="eyebrow-row"><span class="codon C">C</span><span class="eyebrow">03 — Research interests</span></div>
     <h3 class="section-title">Research interests</h3>
     <div class="grid cols-2">
-      <div class="card">
+      <div class="card accent-A">
         <h4>Bioinformatics &amp; biocomputing</h4>
         <p>Computational approaches to biological problems.</p>
       </div>
-      <div class="card">
+      <div class="card accent-C">
         <h4>Molecular genetics &amp; immunology</h4>
         <p>Genetic mechanisms and immune system interactions.</p>
       </div>
-      <div class="card">
+      <div class="card accent-G">
         <h4>Molecular modelling &amp; drug design</h4>
         <p>In-silico drug discovery and molecular dynamics.</p>
       </div>
-      <div class="card">
+      <div class="card accent-T">
         <h4>Sequence analysis &amp; computational biology</h4>
         <p>Algorithmic analysis of biological sequences.</p>
       </div>
@@ -363,10 +428,10 @@
   </section>
 
   <section id="skills">
-    <div class="eyebrow-line"><span class="codon A">A</span> 04 — Skills</div>
+    <div class="eyebrow-row"><span class="codon A">A</span><span class="eyebrow">04 — Skills</span></div>
     <h3 class="section-title">Skills</h3>
     <div class="grid cols-3">
-      <div class="skill-col">
+      <div class="skill-col accent-A">
         <h4>Programming &amp; bioinformatics</h4>
         <ul>
           <li>Programming languages for biologists</li>
@@ -376,7 +441,7 @@
           <li>Mathematical methods for bioinformatics</li>
         </ul>
       </div>
-      <div class="skill-col">
+      <div class="skill-col accent-T">
         <h4>Lab &amp; data analysis</h4>
         <ul>
           <li>Analytical &amp; laboratory techniques</li>
@@ -385,40 +450,38 @@
           <li>Attention to detail &amp; admin support</li>
         </ul>
       </div>
-      <div class="skill-col">
+      <div class="skill-col accent-G">
         <h4>Languages</h4>
-        <div class="lang-row" style="flex-direction:column;gap:12px;">
-          <div><b>English</b>C1 — Advanced</div>
-          <div><b>Shona</b>Native</div>
-        </div>
+        <div class="lang-item"><b>English</b>C1 — Advanced</div>
+        <div class="lang-item"><b>Shona</b>Native</div>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <div class="eyebrow-line"><span class="codon T">T</span> 05 — Projects</div>
+    <div class="eyebrow-row"><span class="codon T">T</span><span class="eyebrow">05 — Projects</span></div>
     <h3 class="section-title">Projects</h3>
     <div class="grid cols-3">
-      <div class="card">
+      <div class="card accent-A">
         <h4>Biocomputing &amp; sequence analysis</h4>
         <p>Applying programming and computational methods to biological sequence data.</p>
         <span class="status">Coursework</span>
       </div>
-      <div class="card">
+      <div class="card accent-C">
         <h4>Molecular modelling &amp; drug design</h4>
         <p>Computational approaches to drug design and molecular docking.</p>
         <span class="status">Coursework</span>
       </div>
-      <div class="card">
+      <div class="card accent-G">
         <h4>Variant calling pipeline &amp; website</h4>
         <p>Developing a variant calling pipeline with an accompanying web interface for visualisation.</p>
-        <span class="status">In progress</span>
+        <span class="status progress">In progress</span>
       </div>
     </div>
   </section>
 
   <section id="certifications">
-    <div class="eyebrow-line"><span class="codon G">G</span> 06 — Certifications &amp; licenses</div>
+    <div class="eyebrow-row"><span class="codon G">G</span><span class="eyebrow">06 — Certifications &amp; licenses</span></div>
     <h3 class="section-title">Certifications &amp; licenses</h3>
     <table>
       <thead>
@@ -443,7 +506,7 @@
   </section>
 
   <section id="cv">
-    <div class="eyebrow-line"><span class="codon C">C</span> 07 — CV / résumé</div>
+    <div class="eyebrow-row"><span class="codon C">C</span><span class="eyebrow">07 — CV / résumé</span></div>
     <h3 class="section-title">CV / résumé</h3>
     <div class="cv-panel">
       <p>Download a copy of my current CV, including academic background, skills and referee details.</p>
@@ -452,7 +515,7 @@
   </section>
 
   <section id="references">
-    <div class="eyebrow-line"><span class="codon A">A</span> 08 — References</div>
+    <div class="eyebrow-row"><span class="codon A">A</span><span class="eyebrow">08 — References</span></div>
     <h3 class="section-title">References</h3>
     <table>
       <thead>
@@ -479,25 +542,34 @@
   </section>
 
   <section id="contact">
-    <div class="eyebrow-line"><span class="codon T">T</span> 09 — Contact</div>
+    <div class="eyebrow-row"><span class="codon T">T</span><span class="eyebrow">09 — Contact</span></div>
     <h3 class="section-title">Get in touch</h3>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <span>Email</span>
-        <a href="mailto:tendayimaparadzes@gmail.com">tendayimaparadzes@gmail.com</a>
-      </div>
-      <div class="contact-item">
-        <span>Phone</span>
-        <a href="tel:+263780648521">+263 780 648 521</a>
-      </div>
-      <div class="contact-item">
-        <span>LinkedIn</span>
-        <a href="https://www.linkedin.com/in/tendayi-maparadze-4042983b3" target="_blank" rel="noopener">linkedin.com/in/tendayi-maparadze</a>
-      </div>
-      <div class="contact-item">
-        <span>GitHub</span>
-        <a href="https://github.com/Maparadze" target="_blank" rel="noopener">github.com/Maparadze</a>
-      </div>
+    <p style="color:var(--muted);margin:0 0 22px;">Tap an icon to reach me directly.</p>
+    <div class="contact-row">
+      <a class="contact-icon" href="mailto:tendayimaparadzes@gmail.com" aria-label="Email">
+        <span class="bubble email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+        </span>
+        <span class="label">Email</span>
+      </a>
+      <a class="contact-icon" href="https://wa.me/263780648521?text=Hi%20Tendayi!%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch.%20How%20can%20we%20connect%3F" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <span class="bubble whatsapp">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.2-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s1 2.5 1.1 2.6c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.1c-1.6 0-3.1-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C3.9 15 3.4 13.5 3.4 12 3.4 7.3 7.3 3.4 12 3.4S20.6 7.3 20.6 12 16.7 20.1 12 20.1z"/></svg>
+        </span>
+        <span class="label">WhatsApp</span>
+      </a>
+      <a class="contact-icon" href="https://www.linkedin.com/in/tendayi-maparadze-4042983b3" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <span class="bubble linkedin">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.48 1 4.98 2.12 4.98 3.5zM.24 8.25h4.48V23H.24V8.25zM8.5 8.25h4.3v2.02h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.86V23h-4.48v-6.78c0-1.62-.03-3.7-2.25-3.7-2.26 0-2.6 1.76-2.6 3.58V23H8.5V8.25z"/></svg>
+        </span>
+        <span class="label">LinkedIn</span>
+      </a>
+      <a class="contact-icon" href="https://github.com/Maparadze" target="_blank" rel="noopener" aria-label="GitHub">
+        <span class="bubble github">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.7-1.4-1.7-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.5.1-3.2 0 0 1-.3 3.4 1.2a11.6 11.6 0 0 1 6.2 0c2.3-1.6 3.4-1.2 3.4-1.2.6 1.7.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.7 5.6-5.4 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+        </span>
+        <span class="label">GitHub</span>
+      </a>
     </div>
   </section>
 </div>
