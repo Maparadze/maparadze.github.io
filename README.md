@@ -1,5 +1,5 @@
 ---
-title: TENDAYI MAPARADZE | My personal website
+title: TENDAYI MAPARADZE | Bioinformatician Aspiring Genomics 
 description: My personal website
 ---
 
