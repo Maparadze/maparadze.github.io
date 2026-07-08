@@ -18,7 +18,7 @@ body {
 ### Undergraduate Student | BSc Honours in Biotechnology and Bioinformatics
 
 [![View Certificates](https://img.shields.io/badge/ðŸ“œ_View_Certificates-00C864?style=for-the-badge&logo=files&logoColor=white)](#-certifications--licenses)
-[![Edit CV](https://img.shields.io/badge/âœï¸_Edit_CV-4285F4?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/Maparadze/maparadze.github.io/blob/main/CV_Tendayi_Maparadze.pdf)
+[![View CV](https://img.shields.io/badge/âœï¸_Edit_CV-4285F4?style=for-the-badge&logo=googledocs&logoColor=white)](https://github.com/Maparadze/maparadze.github.io/blob/main/CV_Tendayi_Maparadze.pdf)
 [![Download CV](https://img.shields.io/badge/ðŸ“¥_Download_CV-FF6B35?style=for-the-badge&logo=download&logoColor=white)](https://github.com/Maparadze/maparadze.github.io/raw/main/CV_Tendayi_Maparadze.pdf)
 
 ---
