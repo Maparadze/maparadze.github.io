@@ -1,127 +1,510 @@
-T. MAPARADZE
-About
-Education
-Research
-Skills
-Projects
-Certs
-CV
-Contact
-A
-Undergraduate · Biotechnology & Bioinformatics
-Tendayi Maparadze
-Aspiring genomics researcher, BSc Honours student at Midlands State University
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tendayi Maparadze — Bioinformatician</title>
+<meta name="description" content="Tendayi Maparadze — BSc Honours Biotechnology and Bioinformatics, Midlands State University">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f5f7f3;
+    --surface:#ffffff;
+    --ink:#142d2b;
+    --muted:#5b6b68;
+    --teal:#0e7c74;
+    --teal-deep:#0a5852;
+    --amber:#c98a2c;
+    --line:#d8e3df;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    background-image:
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(14,124,116,0.05) 40px),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(14,124,116,0.05) 40px);
+  }
+  a{color:var(--teal-deep);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
 
-Driven and detail-oriented undergraduate currently in the 3rd year of a BSc Honours in Biotechnology and Bioinformatics. Strong analytical, organisational and communication skills, with experience in supply chain administration. Actively seeking internship opportunities in biotechnology and bioinformatics.
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,247,243,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:14px;padding-bottom:14px;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    letter-spacing:0.03em;
+    font-size:14px;
+  }
+  .nav-links{display:flex;gap:18px;flex-wrap:wrap;}
+  .nav-links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+  .nav-links a:hover{color:var(--teal-deep);border-color:var(--teal-deep);}
 
-View certificates
-View CV
-Download CV
-T
-01 — About
-About me
-Currently in my 3rd year at Midlands State University, Gweru, Zimbabwe, pursuing a Bachelor's Honours Degree in Biotechnology and Bioinformatics. My interests sit at the intersection of computation and molecular biology — using code to make sense of sequence, structure and function.
+  /* helix divider — signature element */
+  .helix{
+    width:100%;
+    height:26px;
+    display:block;
+    margin:8px 0;
+  }
 
-G
-02 — Education
-Education
-Midlands State University, Gweru, Zimbabwe
-BSc Honours in Biotechnology and Bioinformatics
-Jan 2026 – Present (2nd Year)
-Chirumba High School
-Advanced Level: 4 passes
-—
-Kushingirira High School
-Ordinary Level: 12 passes
-—
-C
-03 — Research interests
-Research interests
-Bioinformatics & biocomputing
-Computational approaches to biological problems.
+  /* hero */
+  header.hero{padding:64px 0 40px;}
+  .eyebrow-line{
+    display:flex;align-items:center;gap:10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:18px;
+  }
+  .codon{
+    width:24px;height:24px;border-radius:50%;
+    display:inline-flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:12px;
+    color:#fff;flex:none;
+  }
+  .codon.A{background:var(--teal);}
+  .codon.T{background:var(--amber);}
+  .codon.G{background:var(--teal-deep);}
+  .codon.C{background:#8a6d3b;}
 
-Molecular genetics & immunology
-Genetic mechanisms and immune system interactions.
+  h1.name{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    font-size:clamp(32px, 6vw, 54px);
+    letter-spacing:-0.01em;
+    margin:0 0 6px;
+    line-height:1.05;
+  }
+  .role{
+    font-size:19px;
+    color:var(--muted);
+    margin:0 0 26px;
+    max-width:560px;
+  }
+  .bio{max-width:640px;margin:0 0 30px;font-size:16px;}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    text-decoration:none;
+    padding:11px 18px;
+    border-radius:3px;
+    border:1px solid var(--ink);
+    display:inline-flex;align-items:center;gap:8px;
+    letter-spacing:0.02em;
+    transition:transform .12s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn.primary{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff;}
+  .btn.ghost{background:transparent;color:var(--ink);}
 
-Molecular modelling & drug design
-In-silico drug discovery and molecular dynamics.
+  /* sections */
+  section{padding:46px 0;border-top:1px solid var(--line);}
+  section h2{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--muted);
+    margin:0 0 4px;
+  }
+  section h3.section-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:26px;
+    font-weight:600;
+    margin:0 0 24px;
+    color:var(--ink);
+  }
 
-Sequence analysis & computational biology
-Algorithmic analysis of biological sequences.
+  /* data table style (mono, ledger-like) */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:15px;
+  }
+  table caption{text-align:left;}
+  th{
+    text-align:left;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding:8px 12px;
+    border-bottom:1px solid var(--ink);
+  }
+  td{
+    padding:12px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  tr:last-child td{border-bottom:none;}
 
-A
-04 — Skills
-Skills
-Programming & bioinformatics
-Programming languages for biologists
-Biocomputing & sequence analysis
-Introduction to bioinformatics
-Molecular modelling & drug design
-Mathematical methods for bioinformatics
-Lab & data analysis
-Analytical & laboratory techniques
-Molecular & cell biology
-Experimental design & data analysis
-Attention to detail & admin support
-Languages
-English
-C1 — Advanced
-Shona
-Native
-T
-05 — Projects
-Projects
-Biocomputing & sequence analysis
-Applying programming and computational methods to biological sequence data.
+  /* grid cards */
+  .grid{display:grid;gap:16px;}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr);}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px;
+  }
+  .card h4{
+    margin:0 0 8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:15px;
+  }
+  .card p{margin:0;color:var(--muted);font-size:14.5px;}
+  .status{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    background:rgba(14,124,116,0.1);
+    padding:3px 8px;
+    border-radius:2px;
+    margin-top:10px;
+  }
 
-Coursework
-Molecular modelling & drug design
-Computational approaches to drug design and molecular docking.
+  .skill-col h4{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    letter-spacing:0.02em;
+    margin:0 0 10px;
+    color:var(--teal-deep);
+  }
+  .skill-col ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;}
+  .skill-col li{margin-bottom:6px;}
 
-Coursework
-Variant calling pipeline & website
-Developing a variant calling pipeline with an accompanying web interface for visualisation.
+  .lang-row{display:flex;gap:24px;margin-top:6px;}
+  .lang-row div{font-size:14.5px;}
+  .lang-row b{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;}
 
-In progress
-G
-06 — Certifications & licenses
-Certifications & licenses
-BSc Honours in Biotechnology and Bioinformatics
-In progress (2nd year)
-Advanced Level (4 passes)
-Completed
-Ordinary Level (12 passes)
-Completed
-Additional certifications can be uploaded and displayed here.
+  .cv-panel{
+    display:flex;align-items:center;justify-content:space-between;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:24px;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .cv-panel p{margin:0;color:var(--muted);max-width:420px;}
 
-C
-07 — CV / résumé
-CV / résumé
-Download a copy of my current CV, including academic background, skills and referee details.
+  .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .contact-item{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:16px 18px;
+  }
+  .contact-item span{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:4px;
+  }
+  .contact-item a{color:var(--ink);text-decoration:none;font-size:15px;}
+  .contact-item a:hover{color:var(--teal-deep);}
 
-Download CV
-A
-08 — References
-References
-Mr Sikhumbuzo Senzanje
-Work Related Learning Coordinator, Dept. of Applied Biosciences & Biotechnology, MSU
-senzanjes@staff.msu.ac.zw
-Mr Stanley Alifa
-Supervisor & Lecturer, Midlands State University
-alifas@staff.msu.ac.zw
-+263 77 416 4123
-Dr Sapkota Manoj
-Internship Supervisor, University of Kentucky
-manoj.sapkota@uky.edu
-T
-09 — Contact
-Get in touch
-Email
-tendayimaparadzes@gmail.com
-Phone
-+263 780 648 521
-LinkedIn
-linkedin.com/in/tendayi-maparadze
-GitHub
-github.com/Maparadze
-Actively seeking remote internship opportunities in bioinformatics and scholarships · Last updated 2026
+  footer{
+    padding:30px 0 60px;
+    text-align:center;
+    color:var(--muted);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:720px){
+    .grid.cols-2, .grid.cols-3{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .cv-panel{flex-direction:column;align-items:flex-start;}
+    table, thead, tbody, th, td, tr{display:block;}
+    thead{display:none;}
+    tr{border-bottom:1px solid var(--line);padding:10px 0;}
+    td{border:none;padding:4px 0;}
+    td::before{
+      content:attr(data-label);
+      display:block;
+      font-family:'IBM Plex Mono',monospace;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:var(--muted);
+      margin-bottom:2px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">T. MAPARADZE</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certs</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow-line"><span class="codon A">A</span> Undergraduate · Biotechnology &amp; Bioinformatics</div>
+    <h1 class="name">Tendayi Maparadze</h1>
+    <p class="role">Aspiring genomics researcher, BSc Honours student at Midlands State University</p>
+    <p class="bio">Driven and detail-oriented undergraduate currently in the 3rd year of a BSc Honours in Biotechnology and Bioinformatics. Strong analytical, organisational and communication skills, with experience in supply chain administration. Actively seeking internship opportunities in biotechnology and bioinformatics.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#certifications">View certificates</a>
+      <a class="btn ghost" href="CV_Tendayi_Maparadze.pdf">View CV</a>
+      <a class="btn ghost" href="CV_Tendayi_Maparadze.pdf" download>Download CV</a>
+    </div>
+  </header>
+
+  <svg class="helix" viewBox="0 0 900 26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 13 Q22.5 0 45 13 T90 13 T135 13 T180 13 T225 13 T270 13 T315 13 T360 13 T405 13 T450 13 T495 13 T540 13 T585 13 T630 13 T675 13 T720 13 T765 13 T810 13 T855 13 T900 13" stroke="#0e7c74" stroke-width="1.6" fill="none" opacity="0.55"/>
+    <path d="M0 13 Q22.5 26 45 13 T90 13 T135 13 T180 13 T225 13 T270 13 T315 13 T360 13 T405 13 T450 13 T495 13 T540 13 T585 13 T630 13 T675 13 T720 13 T765 13 T810 13 T855 13 T900 13" stroke="#c98a2c" stroke-width="1.6" fill="none" opacity="0.55"/>
+  </svg>
+
+  <section id="about">
+    <div class="eyebrow-line"><span class="codon T">T</span> 01 — About</div>
+    <h3 class="section-title">About me</h3>
+    <p class="bio" style="max-width:100%;">Currently in my 3rd year at Midlands State University, Gweru, Zimbabwe, pursuing a Bachelor's Honours Degree in Biotechnology and Bioinformatics. My interests sit at the intersection of computation and molecular biology — using code to make sense of sequence, structure and function.</p>
+  </section>
+
+  <section id="education">
+    <div class="eyebrow-line"><span class="codon G">G</span> 02 — Education</div>
+    <h3 class="section-title">Education</h3>
+    <table>
+      <thead>
+        <tr><th>Institution</th><th>Programme</th><th>Year</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Institution"><strong>Midlands State University</strong>, Gweru, Zimbabwe</td>
+          <td data-label="Programme">BSc Honours in Biotechnology and Bioinformatics</td>
+          <td data-label="Year">Jan 2026 – Present (2nd Year)</td>
+        </tr>
+        <tr>
+          <td data-label="Institution"><strong>Chirumba High School</strong></td>
+          <td data-label="Programme">Advanced Level: 4 passes</td>
+          <td data-label="Year">—</td>
+        </tr>
+        <tr>
+          <td data-label="Institution"><strong>Kushingirira High School</strong></td>
+          <td data-label="Programme">Ordinary Level: 12 passes</td>
+          <td data-label="Year">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="research">
+    <div class="eyebrow-line"><span class="codon C">C</span> 03 — Research interests</div>
+    <h3 class="section-title">Research interests</h3>
+    <div class="grid cols-2">
+      <div class="card">
+        <h4>Bioinformatics &amp; biocomputing</h4>
+        <p>Computational approaches to biological problems.</p>
+      </div>
+      <div class="card">
+        <h4>Molecular genetics &amp; immunology</h4>
+        <p>Genetic mechanisms and immune system interactions.</p>
+      </div>
+      <div class="card">
+        <h4>Molecular modelling &amp; drug design</h4>
+        <p>In-silico drug discovery and molecular dynamics.</p>
+      </div>
+      <div class="card">
+        <h4>Sequence analysis &amp; computational biology</h4>
+        <p>Algorithmic analysis of biological sequences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow-line"><span class="codon A">A</span> 04 — Skills</div>
+    <h3 class="section-title">Skills</h3>
+    <div class="grid cols-3">
+      <div class="skill-col">
+        <h4>Programming &amp; bioinformatics</h4>
+        <ul>
+          <li>Programming languages for biologists</li>
+          <li>Biocomputing &amp; sequence analysis</li>
+          <li>Introduction to bioinformatics</li>
+          <li>Molecular modelling &amp; drug design</li>
+          <li>Mathematical methods for bioinformatics</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>Lab &amp; data analysis</h4>
+        <ul>
+          <li>Analytical &amp; laboratory techniques</li>
+          <li>Molecular &amp; cell biology</li>
+          <li>Experimental design &amp; data analysis</li>
+          <li>Attention to detail &amp; admin support</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h4>Languages</h4>
+        <div class="lang-row" style="flex-direction:column;gap:12px;">
+          <div><b>English</b>C1 — Advanced</div>
+          <div><b>Shona</b>Native</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="eyebrow-line"><span class="codon T">T</span> 05 — Projects</div>
+    <h3 class="section-title">Projects</h3>
+    <div class="grid cols-3">
+      <div class="card">
+        <h4>Biocomputing &amp; sequence analysis</h4>
+        <p>Applying programming and computational methods to biological sequence data.</p>
+        <span class="status">Coursework</span>
+      </div>
+      <div class="card">
+        <h4>Molecular modelling &amp; drug design</h4>
+        <p>Computational approaches to drug design and molecular docking.</p>
+        <span class="status">Coursework</span>
+      </div>
+      <div class="card">
+        <h4>Variant calling pipeline &amp; website</h4>
+        <p>Developing a variant calling pipeline with an accompanying web interface for visualisation.</p>
+        <span class="status">In progress</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="eyebrow-line"><span class="codon G">G</span> 06 — Certifications &amp; licenses</div>
+    <h3 class="section-title">Certifications &amp; licenses</h3>
+    <table>
+      <thead>
+        <tr><th>Certification</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Certification">BSc Honours in Biotechnology and Bioinformatics</td>
+          <td data-label="Status">In progress (2nd year)</td>
+        </tr>
+        <tr>
+          <td data-label="Certification">Advanced Level (4 passes)</td>
+          <td data-label="Status">Completed</td>
+        </tr>
+        <tr>
+          <td data-label="Certification">Ordinary Level (12 passes)</td>
+          <td data-label="Status">Completed</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-size:14px;margin-top:16px;">Additional certifications can be uploaded and displayed here.</p>
+  </section>
+
+  <section id="cv">
+    <div class="eyebrow-line"><span class="codon C">C</span> 07 — CV / résumé</div>
+    <h3 class="section-title">CV / résumé</h3>
+    <div class="cv-panel">
+      <p>Download a copy of my current CV, including academic background, skills and referee details.</p>
+      <a class="btn primary" href="CV_Tendayi_Maparadze.pdf" download>Download CV</a>
+    </div>
+  </section>
+
+  <section id="references">
+    <div class="eyebrow-line"><span class="codon A">A</span> 08 — References</div>
+    <h3 class="section-title">References</h3>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Position</th><th>Contact</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name"><strong>Mr Sikhumbuzo Senzanje</strong></td>
+          <td data-label="Position">Work Related Learning Coordinator, Dept. of Applied Biosciences &amp; Biotechnology, MSU</td>
+          <td data-label="Contact"><a href="mailto:senzanjes@staff.msu.ac.zw">senzanjes@staff.msu.ac.zw</a></td>
+        </tr>
+        <tr>
+          <td data-label="Name"><strong>Mr Stanley Alifa</strong></td>
+          <td data-label="Position">Supervisor &amp; Lecturer, Midlands State University</td>
+          <td data-label="Contact"><a href="mailto:alifas@staff.msu.ac.zw">alifas@staff.msu.ac.zw</a><br>+263 77 416 4123</td>
+        </tr>
+        <tr>
+          <td data-label="Name"><strong>Dr Sapkota Manoj</strong></td>
+          <td data-label="Position">Internship Supervisor, University of Kentucky</td>
+          <td data-label="Contact"><a href="mailto:manoj.sapkota@uky.edu">manoj.sapkota@uky.edu</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="contact">
+    <div class="eyebrow-line"><span class="codon T">T</span> 09 — Contact</div>
+    <h3 class="section-title">Get in touch</h3>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span>Email</span>
+        <a href="mailto:tendayimaparadzes@gmail.com">tendayimaparadzes@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span>Phone</span>
+        <a href="tel:+263780648521">+263 780 648 521</a>
+      </div>
+      <div class="contact-item">
+        <span>LinkedIn</span>
+        <a href="https://www.linkedin.com/in/tendayi-maparadze-4042983b3" target="_blank" rel="noopener">linkedin.com/in/tendayi-maparadze</a>
+      </div>
+      <div class="contact-item">
+        <span>GitHub</span>
+        <a href="https://github.com/Maparadze" target="_blank" rel="noopener">github.com/Maparadze</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Actively seeking remote internship opportunities in bioinformatics and scholarships · Last updated 2026
+</footer>
+
+</body>
+</html>
